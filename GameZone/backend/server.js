@@ -30,14 +30,14 @@ app.use('/api/orders', orderRoutes);
 
 // Ruta de prueba
 app.get('/api/test', (req, res) => {
-  res.json({ message: '🚀 Backend GameZone funcionando correctamente!' });
+  res.json({ message: ' Backend GameZone funcionando correctamente!' });
 });
 
 // Ruta de prueba de BD
 app.get('/api/test-db', (req, res) => {
   db.query('SELECT COUNT(*) as count FROM usuario', (err, results) => {
     if (err) {
-      console.error('❌ Error en test de BD:', err);
+      console.error(' Error en test de BD:', err);
       return res.status(500).json({ 
         success: false,
         message: 'Error de conexión a la base de datos',
@@ -56,7 +56,7 @@ app.get('/api/test-db', (req, res) => {
 
 // Middleware de manejo de errores
 app.use((err, req, res, next) => {
-  console.error('❌ Error en el servidor:', err);
+  console.error(' Error en el servidor:', err);
   res.status(500).json({ 
     success: false,
     message: 'Error interno del servidor',
@@ -74,8 +74,9 @@ app.use('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🎯 Servidor corriendo en http://localhost:${PORT}`);
-  console.log(`📊 Base de datos: GameShop (MySQL/XAMPP)`);
-  console.log(`🧪 Prueba la conexión en: http://localhost:${PORT}/api/test`);
-  console.log(`🗃️ Prueba la BD en: http://localhost:${PORT}/api/test-db`);
+  console.log(` Servidor corriendo en http://localhost:${PORT}`);
+  console.log(` Base de datos: GameShop (MySQL/XAMPP)`);
+  console.log(` Prueba la conexión en: http://localhost:${PORT}/api/test`);
+  console.log(` Prueba la BD en: http://localhost:${PORT}/api/test-db`);
+
 });
